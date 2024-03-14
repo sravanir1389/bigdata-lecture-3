@@ -1,0 +1,13 @@
+import requests
+
+def get_random_cat_picture_url():
+    response = requests.get('https://api.thecatapi.com/v1/images/search')
+    data = response.json()
+    if data:
+        return data[0]['url']
+    else:
+        return None
+
+# Example usage:
+cat_picture_url = get_random_cat_picture_url()
+print("Random cat picture URL:", cat_picture_url)
